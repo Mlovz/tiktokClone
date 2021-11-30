@@ -87,8 +87,7 @@ const HeaderMenu = () => {
             >
               <Avatar src={auth.user.avatar} />
             </a>
-            <ul 
-            className="dropdown-menu dropdown-menu-end">
+            <ul className="dropdown-menu dropdown-menu-end">
               <li>
                 <Link to={`/profile/${auth.user._id}`} className="dropdown-item">
                   <i className="far fa-user-circle"></i>

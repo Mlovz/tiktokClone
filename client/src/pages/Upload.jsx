@@ -4,6 +4,9 @@ import Title from "../components/Title";
 import { useForm } from "react-hook-form";
 import Form from "../components/Form";
 import Input from "../components/Input";
+import Select from "../components/Select";
+import CheckBox from "../components/CheckBox";
+import Button from "../components/Button";
 
 const Upload = () => {
   const {
@@ -36,18 +39,52 @@ const Upload = () => {
               <div className="upload__body__content__file">
                 <FileInput name="files" control={control} />
               </div>
-              {/* <div className="upload__body__content__form">
+              <div className="upload__body__content__form">
+                <Title size={17} fw={600} margin="0 0 5px 0">
+                  Заголовок
+                </Title>
                 <Input
                   {...register("title")}
                   type="text"
                   id="title"
                   name="title"
                   placeholder=""
-                  fullWidth='100%'
+                  fullWidth="100%"
                   // error={errors.password}
-                >
-                </Input>
-              </div> */}
+                />
+
+                <Title size={17} fw={600} margin="20px 0 5px 0">
+                  Обложка
+                </Title>
+                <Input
+                  {...register("title")}
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder=""
+                  fullWidth="100%"
+                  // error={errors.password}
+                />
+
+                <Title size={17} fw={600} margin="20px 0 5px 0">
+                  Кто может просматривать это видео
+                </Title>
+                <Select />
+
+                <Title size={17} fw={600} margin="20px 0 5px 0">
+                  Позволить людям:
+                </Title>
+                <div className="d-flex align-items-center">
+                  <CheckBox margin="0 0 0 0" txt="Комментарии" />
+                  <CheckBox margin="0 20px 0 20px" txt="Дуэт" />
+                  <CheckBox margin="0 0 0 0" txt="Сшивание" />
+                </div>
+
+                <div className="upload__body__content__btn">
+                  <Button variant='outlined' color='#bbbbbb' colorText='#353535'>Удалить</Button>
+                  <Button margin='0 0 0 20px' variant='contained' color='#FE2C55'>Опубликовать</Button>
+                </div>
+              </div>
             </Form>
           </div>
         </div>

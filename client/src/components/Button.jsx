@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({variant, color, fullWidth, onClick, size, disabled,margin, children }) => {
+const Button = ({variant, colorText, color, fullWidth, onClick, size, disabled,margin, children }) => {
 
     
     const style = {
@@ -11,6 +11,7 @@ const Button = ({variant, color, fullWidth, onClick, size, disabled,margin, chil
         fontSize: size,
         pointerEvents: disabled && 'none',
         margin: margin && margin,
+        color: colorText ? colorText : '#fff'
     }
     
     return (

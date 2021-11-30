@@ -64,10 +64,10 @@
             .dropdown-menu{
                 margin: 0;
                 padding: 0;
-                border: none;
                 border-radius: 10px;
                 border: 1px solid #dbdbdb;
                 overflow: hidden;
+                z-index: 1000;
                 .dropdown-item{
                     font-size: 18px;
                     font-weight: 600;
@@ -83,6 +83,7 @@
                     }
                 }
             }
+            
             
             &.active{
                 background: $color_opacity;
