@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700;900&display=swap');
+
+@import './variables';
+@import './mixin';
+
+body{
+  font-family: 'Source Code Pro', monospace;
+  background: #F8F8F8;
+}
+button,input{
+  font-family: 'Source Code Pro', monospace;
+  outline: none;
+}
+ul,ol,p,h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+ul,ol{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color: $text_color;
+  &:hover{
+    color: $text_color;
+  }
+}
+
+form{
+  .valid__text{
+    font-size: 13px;
+    color: $red;
+  }
+}
+
+@import './components/header';
+@import './components/button';
+@import './components/auth-modal';
+@import './components/input';
+@import './components/avatar';
+
+
+//pages
+@import './pages/upload';

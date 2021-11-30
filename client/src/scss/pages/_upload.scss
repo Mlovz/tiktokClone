@@ -1,0 +1,11 @@
+.upload{
+    padding-top: $header_height;
+    &__body{
+        margin-top: 10px;
+        box-shadow: rgba(0, 0, 0, .1%) 0px 2px 8px;
+        border-radius: 8px;
+        background-color: rgb(255, 255, 255);
+        padding: 24px 56px;
+        height: 80vh;
+    }
+}
