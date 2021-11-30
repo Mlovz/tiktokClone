@@ -21,6 +21,10 @@
                 background-image: url("data:image/svg+xml;utf8,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill: none; stroke: gray; stroke-width: 3; stroke-dasharray: 6 6'/></svg>");
                 @include flex(center, center);
                 cursor: pointer;
+                >div{
+                    @include flex(center, center);
+                    flex-direction: column;
+                }
                 >input{
                     height: 100%;
                 }
@@ -35,6 +39,34 @@
             }
             &__btn{
                 margin-top: 40px;
+            }
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        &__body{
+            &__content{
+            
+                >form{
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                &__file{
+                    max-width: 100%;
+                    padding: 20px;
+                    >div{
+                        h6{
+                            display: none;
+                            &:nth-last-of-type(6){
+                                display: block;
+                            }
+                        }
+                    }
+                }
+                &__form{
+                    transform: translateY(0);
+                    margin-top: 20px;
+                    margin-left: 0;
+                }
             }
         }
     }

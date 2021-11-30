@@ -14,7 +14,6 @@ const FileInput = ({ name, control }) => {
           <DropZone onDrop={onChange}>
             {({ getRootProps, getInputProps }) => (
               <div
-                className="d-flex flex-column align-items-center justify-content-center"
                 style={{
                   padding: "2px",
                   height: "100%",
