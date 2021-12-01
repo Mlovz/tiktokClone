@@ -1,15 +1,27 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { GLOBALTYPES } from '../redux/actions/globalAction'
 import Button from './Button'
 
 const FollowBtn = () => {
     const [onFollow, setOnFollow] = useState(false)
+    const dispatch = useDispatch()
+    const {auth} = useSelector(state => state)
     
     const handleFollow = () => {
-        
-        setOnFollow(true)
+        if(auth.token){
+            setOnFollow(true)
+        }else{
+            dispatch({type: GLOBALTYPES.AUTH_MODAL, payload: true})
+        }
     }
     const handleUnFollow = () => {
-        setOnFollow(false)
+        if(auth.token){
+            setOnFollow(false)
+        }else{
+            dispatch({type: GLOBALTYPES.AUTH_MODAL, payload: true})
+        }
+        
     }
     
     return (
