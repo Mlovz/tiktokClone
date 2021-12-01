@@ -5,6 +5,7 @@ const FollowBtn = () => {
     const [onFollow, setOnFollow] = useState(false)
     
     const handleFollow = () => {
+        
         setOnFollow(true)
     }
     const handleUnFollow = () => {
