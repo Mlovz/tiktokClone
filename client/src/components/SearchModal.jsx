@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-const SearchModal = ({ users }) => {
-  return (
-    <div className="user__search">
-        
-    </div>
-  );
-};
+const SearchModal = () => {
+    return (
+        <div>
+            SearchModal
+        </div>
+    )
+}
 
-export default SearchModal;
+export default SearchModal
