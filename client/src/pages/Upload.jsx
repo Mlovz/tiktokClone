@@ -12,7 +12,6 @@ const Upload = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     control,
   } = useForm({
     defaultValues: {},

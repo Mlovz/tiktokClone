@@ -9,6 +9,14 @@ export const postDataApi = async (url, post, token) => {
     })
     return res
 }
+export const getDataApi = async (url, token) => {
+    const res = await axios.get(`/api/${url}`, {
+        headers:{
+            Authorization: token
+        }
+    })
+    return res
+}
 
 
 

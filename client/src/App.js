@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Switch, Route, useLocation } from "react-router";
 import Header from "./components/header/Header";
 import Upload from "./pages/Upload";
@@ -12,7 +12,7 @@ import Following from "./pages/Following";
 
 function App() {
   const dispatch = useDispatch();
-  const { alert } = useSelector((state) => state);
+  // const {  } = useSelector((state) => state);
   const {pathname} = useLocation()
 
   useEffect(() => {
