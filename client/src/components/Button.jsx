@@ -8,7 +8,7 @@ const Button = ({variant, colorText, color, fullWidth, onClick, size, disabled,m
         borderBottom: variant === 'outlinedBottom' ? `1px solid ${colorText}` : 'none',
         borderRadius: variant === 'outlinedBottom' && '0',
         color: disabled ? '#dbdbdb' : variant === 'contained' ? '#fff' : colorText ? colorText : color ,
-        background: disabled ? '#ccc' : variant === 'contained' ? color : '#fff',
+        background: disabled ? '#ccc' : variant === 'contained' ? color : variant === '' || variant === 'outlinedBottom' ? 'transparent' : '#fff',
         width: fullWidth && '100%',
         fontSize: size,
         pointerEvents: disabled && 'none',

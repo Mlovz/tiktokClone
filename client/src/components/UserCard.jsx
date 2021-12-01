@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom'
 import Avatar from './Avatar'
 import Title from './Title'
 
-const UserCard = ({user,component,index, children}) => {
+const UserCard = ({user,component,index, onClick, children}) => {
     return (
         <motion.div
             initial={{opacity: 0, x: '10px'}}
             animate={{opacity: 1, x: '0',transition: {delay: `0.${index}`}}}
             exit={{opacity: 0, x: '10px'}}
-         className='usercard'>
+            className='usercard'>
             {
                 component === 'Link' 
-                ? <Link to={`/profile/${user._id}`} className='usercard__item'>
+                ? <Link onClick={onClick} to={`/profile/${user._id}`} className='usercard__item'>
                     <Avatar src={user?.avatar} size='small'/>
                     <div style={{
                         marginLeft: '5px'
@@ -22,7 +22,7 @@ const UserCard = ({user,component,index, children}) => {
                         <Title size={14} fw={500}>{user?.fullname}</Title>
                     </div>
                 </Link>
-                : <div className='usercard__item'>
+                : <div onClick={onClick} className='usercard__item'>
                     <Avatar src={user?.avatar} size='small'/>
                     <div>
                         <Title size={18} fw={600}>{user?.username}</Title>

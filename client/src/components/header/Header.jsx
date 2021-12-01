@@ -66,7 +66,7 @@ const Header = () => {
               )
             )}
             {!search && <i className="fal fa-search"></i>}
-            {search && <SearchModal users={users} />}
+            {search && <SearchModal users={users} setSearch={setSearch}/>}
           </div>
           {auth.token ? (
             <HeaderMenu />

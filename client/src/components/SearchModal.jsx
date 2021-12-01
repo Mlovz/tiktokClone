@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { useSelector } from "react-redux";
 import Title from "./Title";
 import UserCard from "./UserCard";
 
-const SearchModal = ({ users }) => {
-  const { auth } = useSelector((state) => state);
+const SearchModal = ({ users, setSearch }) => {
 
   return (
     <motion.div
@@ -18,7 +16,7 @@ const SearchModal = ({ users }) => {
         Аккаунты
       </Title>
       {users.map((user, index) => (
-        <UserCard key={user._id} index={index} user={user} component="Link" />
+        <UserCard key={user._id} index={index} user={user} onClick={() => setSearch('')} component="Link" />
       ))}
     </motion.div>
   );
