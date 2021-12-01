@@ -7,24 +7,27 @@ import Title from "../Title";
 const Info = ({ auth, dispatch, id }) => {
   return (
     <div className="info">
-      <div className="d-flex align-items-center">
-        <Avatar src={auth.user?.avatar} size="big" />
-        <div
-          style={{
-            marginLeft: "20px",
-          }}
-        >
-          <Title margin="0 0 5px 0px" size={30} fw={700}>
-            {auth.user?.username}
-          </Title>
-          <Title margin="0 0 10px 0px" size={20} fw={700}>
-            {auth.user?.fullname}
-          </Title>
-          {/* {
+      <div className="d-flex align-items-start justify-content-between">
+        <div className="d-flex align-items-center">
+          <Avatar src={auth.user?.avatar} size="big" />
+          <div
+            style={{
+              marginLeft: "20px",
+            }}
+          >
+            <Title margin="0 0 5px 0px" size={30} fw={700}>
+              {auth.user?.username}
+            </Title>
+            <Title margin="0 0 10px 0px" size={20} fw={700}>
+              {auth.user?.fullname}
+            </Title>
+            {/* {
                         auth.user?._id !== id && <FollowBtn id={id}/>
                     } */}
-          <FollowBtn id={id} />
+            <FollowBtn id={id} />
+          </div>
         </div>
+        <i style={{fontSize: '25px'}} className="far fa-ellipsis-h"></i>
       </div>
 
       <div className="mt-4 d-flex align-items-center">
@@ -58,7 +61,6 @@ const Info = ({ auth, dispatch, id }) => {
       <div>
         <Text margin="10px 0 0 0" size={16} fw={500} txt={auth.user?.story} />
       </div>
-      
     </div>
   );
 };
