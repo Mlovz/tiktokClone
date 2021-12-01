@@ -1,7 +1,10 @@
 .usercard{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    border: 1px solid #000;
+    &__item{
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        &:hover{
+            background: $color_opacity;
+        }
+    }
 }

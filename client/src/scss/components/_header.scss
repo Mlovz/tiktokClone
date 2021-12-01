@@ -43,6 +43,18 @@
             color: #b6b2b2;
             font-weight: 500;
         }
+        .search__modal{
+            position: absolute;
+            top: 115%;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: rgba(0, 0, 0, .1%) 0px 2px 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            max-height: 400px;
+            overflow-y: auto;
+        }
     }
     &__menu{
         display: flex;

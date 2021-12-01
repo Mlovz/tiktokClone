@@ -1,20 +1,27 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import UserCard from './UserCard'
+import { motion } from "framer-motion";
+import React from "react";
+import { useSelector } from "react-redux";
+import Title from "./Title";
+import UserCard from "./UserCard";
 
-const SearchModal = ({users}) => {
-    const {auth} = useSelector(state => state)
-    
-    return (
-        <div className='search__modal'>
-            {
-                users.map(user => (
-                    <UserCard key={user._id} user={user} component='Link'/>
-                ))
-            }
-            
-        </div>
-    )
-}
+const SearchModal = ({ users }) => {
+  const { auth } = useSelector((state) => state);
 
-export default SearchModal
+  return (
+    <motion.div
+      initial={{ y: "-50px" }}
+      animate={{ y: "0" }}
+      exit={{ y: "-50px" }}
+      className="search__modal"
+    >
+      <Title margin="8px 0 10px 10px" size={15} color="#bbbbbb">
+        Аккаунты
+      </Title>
+      {users.map((user, index) => (
+        <UserCard key={user._id} index={index} user={user} component="Link" />
+      ))}
+    </motion.div>
+  );
+};
+
+export default SearchModal;

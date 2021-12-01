@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Info from '../components/profile/Info'
 import {useSelector, useDispatch} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import Button from '../components/Button'
 import Clips from '../components/Clips'
 import Likes from '../components/Likes'
+import { getProfileUser } from '../redux/actions/profileAction'
 
 const Profile = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
     const {auth} = useSelector(state => state)
     const [tab, setTab] = useState(true)
+    
+    useEffect(() => {
+        dispatch(getProfileUser(id))
+    },[dispatch, id])
     
     return (
         <div className='profile'>
