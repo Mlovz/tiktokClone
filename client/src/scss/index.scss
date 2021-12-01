@@ -26,6 +26,13 @@ a{
   }
 }
 
+.app{
+  &__main{
+    padding-top: 90px;
+  }
+}
+
+
 form{
   .valid__text{
     font-size: 13px;
@@ -38,6 +45,7 @@ form{
 @import './components/auth-modal';
 @import './components/input';
 @import './components/avatar';
+@import './components/sidebar';
 
 
 //pages

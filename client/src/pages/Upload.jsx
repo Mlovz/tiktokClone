@@ -75,11 +75,8 @@ const Upload = () => {
                   Позволить людям:
                 </Title>
                 <div className="d-flex align-items-center">
-                  <CheckBox margin="0 0 0 0" txt="Комментарии" />
-                  <CheckBox margin="0 20px 0 20px" txt="Дуэт" />
-                  <CheckBox margin="0 0 0 0" txt="Сшивание" />
+                  <CheckBox id='comment' margin="0 0 0 0" txt="Комментарии" />
                 </div>
-
                 <div className="upload__body__content__btn">
                   <Button variant='outlined' color='#bbbbbb' colorText='#353535'>Удалить</Button>
                   <Button margin='0 0 0 20px' variant='contained' color='#FE2C55'>Опубликовать</Button>

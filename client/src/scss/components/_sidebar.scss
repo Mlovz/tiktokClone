@@ -1,0 +1,20 @@
+.sidebar{
+    height: calc(100vh - 60px);
+    max-width: 350px;
+    width: 100%;
+    &__route{
+        &__link~&__link{
+            margin-top: 10px;
+        }
+        &__link{
+            display: flex;
+            align-items: center;
+            &.active{
+                color: red;
+                svg{
+                    fill: $red;
+                }
+            }
+        }
+    }
+}
