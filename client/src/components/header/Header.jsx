@@ -10,30 +10,31 @@ import HeaderMenu from "./HeaderMenu";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const {authModal, auth } = useSelector((state) => state);
-  const [search, setSearch] = useState('')
-  const [load, setLoad] = useState(false)
-  const [users, setUsers] = useState([])
+  const { authModal, auth } = useSelector((state) => state);
+  const [search, setSearch] = useState("");
+  const [load, setLoad] = useState(false);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const getUsers = async() => {
-      if(search){
-        setLoad(true)
+    const getUsers = async () => {
+      if (search) {
+        setLoad(true);
         await getDataApi(`user_search?username=${search}`, null)
-        .then(res => {
-          setUsers(res.data.users)
-          setLoad(false)
-        })
-        .catch(err => {
-          dispatch({type: GLOBALTYPES.ALERT, payload: {error: err.response.data.msg}})
-        })
+          .then((res) => {
+            setUsers(res.data.users);
+            setLoad(false);
+          })
+          .catch((err) => {
+            dispatch({
+              type: GLOBALTYPES.ALERT,
+              payload: { error: err.response.data.msg },
+            });
+          });
       }
-    }
-    getUsers()
-    
-  },[search, dispatch])
-  
-  
+    };
+    getUsers();
+  }, [search, dispatch]);
+
   return (
     <div className="header">
       <div className="container h-100 w-100">
@@ -43,20 +44,29 @@ const Header = () => {
             <span>TikTok</span>
           </div>
           <div className="header__search">
-            <input type="text" name='search' onChange={(e) => setSearch(e.target.value)} placeholder="Поиск аккаунтов..." />
-            {
-              load ? <div className="text-dark">
-              <span
-                className="spinner-border spinner-border-sm mx-2"
-                role="status"
-                aria-hidden="true"
-              ></span>
-            </div>
-            : search && !load && <i className="fal fa-times"></i>
-            }
-            {
-              !search && <i className="fal fa-search"></i>
-            }
+            <input
+              type="text"
+              name="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Поиск аккаунтов..."
+            />
+            {load ? (
+              <div className="text-dark">
+                <span
+                  className="spinner-border spinner-border-sm mx-2"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+              </div>
+            ) : (
+              search &&
+              !load && (
+                <i onClick={() => setSearch("")} className="fal fa-times"></i>
+              )
+            )}
+            {!search && <i className="fal fa-search"></i>}
+            {search && <SearchModal users={users} />}
           </div>
           {auth.token ? (
             <HeaderMenu />
@@ -74,13 +84,7 @@ const Header = () => {
           )}
         </div>
       </div>
-      <AnimatePresence>
-      {authModal && <AuthModal />}
-      {/* {
-        search && <SearchModal users={users}/>
-      } */}
-      </AnimatePresence>
-
+      <AnimatePresence>{authModal && <AuthModal />}</AnimatePresence>
     </div>
   );
 };
