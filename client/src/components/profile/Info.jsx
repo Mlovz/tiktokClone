@@ -5,6 +5,8 @@ import Text from "../Text";
 import Title from "../Title";
 
 const Info = ({ auth, dispatch, id }) => {
+  
+  
   return (
     <div className="info">
       <div className="d-flex align-items-start justify-content-between">
