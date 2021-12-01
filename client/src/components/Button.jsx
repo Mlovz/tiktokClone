@@ -4,7 +4,7 @@ const Button = ({variant, colorText, color, fullWidth, onClick, size, disabled,m
 
     
     const style = {
-        border: variant === 'outlined' ? `1px solid ${color}` : 'none',
+        border: variant === 'outlined' ? `1px solid ${color}` : `1px solid transparent`,
         color: disabled ? '#dbdbdb' : variant === 'contained' ? '#fff' : color ,
         background: disabled ? '#ccc' : variant === 'contained' ? color : '#fff',
         width: fullWidth && '100%',

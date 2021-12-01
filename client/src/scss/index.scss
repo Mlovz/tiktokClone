@@ -29,6 +29,7 @@ a{
 .app{
   &__main{
     padding-top: 90px;
+    
   }
 }
 
@@ -50,3 +51,4 @@ form{
 
 //pages
 @import './pages/upload';
+@import './pages/profile';

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Title = ({children, size, margin, fw, color }) => {
+const Title = ({children, size,component, margin, fw, color }) => {
   return (
     <h6
       style={{
