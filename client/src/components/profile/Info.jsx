@@ -1,6 +1,7 @@
 import React from "react";
 import Avatar from "../Avatar";
 import FollowBtn from "../FollowBtn";
+import Text from "../Text";
 import Title from "../Title";
 
 const Info = ({ auth, dispatch, id }) => {
@@ -28,26 +29,34 @@ const Info = ({ auth, dispatch, id }) => {
 
       <div className="mt-4 d-flex align-items-center">
         <Title size={17} fw={400}>
-          <strong style={{ fontWeight: "600", fontSize: "19px", marginRight: '4px' }}>
+          <strong
+            style={{ fontWeight: "600", fontSize: "19px", marginRight: "4px" }}
+          >
             {auth.user?.following.length}
           </strong>
           Подписки
         </Title>
         <Title margin="0 20px 0 20px" size={17} fw={400}>
-          <strong style={{ fontWeight: "600", fontSize: "19px", marginRight: '4px' }}>
+          <strong
+            style={{ fontWeight: "600", fontSize: "19px", marginRight: "4px" }}
+          >
             {auth.user?.followers.length}
           </strong>
           Подписчики
         </Title>
 
         <Title size={17} fw={400}>
-          <strong style={{ fontWeight: "600", fontSize: "19px", marginRight: '4px' }}>331</strong>
+          <strong
+            style={{ fontWeight: "600", fontSize: "19px", marginRight: "4px" }}
+          >
+            331
+          </strong>
           Лайки
         </Title>
       </div>
 
       <div>
-          
+        <Text margin="10px 0 0 0" size={16} fw={500} txt={auth.user?.story} />
       </div>
       
     </div>
