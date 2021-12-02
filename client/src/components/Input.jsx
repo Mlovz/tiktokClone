@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 const Input = forwardRef((props, ref) => {
   const style = {
     border: props.error ? "1px solid #FE2C55" : "1px solid #dbdbdb",
-    width: props.fullWidth && props.fullWidth
+    width: props.fullwidth && props.fullwidth
   };
 
   return (

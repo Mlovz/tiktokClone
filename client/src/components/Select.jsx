@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-const Select = () => {
+const Select = forwardRef((props, ref) => {
     return (
-        <select className="form-select" aria-label="Default select example">
-            <option selected>Все</option>
-            <option value="2">Друзья</option>
-            <option value="3">Приватное</option>
+        <select className="form-select" {...props} ref={ref} aria-label="Default select example">
+            <option defaultValue="Все">Все</option>
+            <option defaultValue="Друзья">Друзья</option>
+            <option defaultValue="Приватное">Приватное</option>
         </select>
     )
-}
+})
 
 export default Select

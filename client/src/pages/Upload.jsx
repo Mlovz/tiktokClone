@@ -17,7 +17,9 @@ const Upload = () => {
     defaultValues: {},
   });
 
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="upload">
@@ -48,7 +50,7 @@ const Upload = () => {
                   id="title"
                   name="title"
                   placeholder=""
-                  fullWidth="100%"
+                  fullwidth="100%"
                   // error={errors.password}
                 />
 
@@ -56,29 +58,39 @@ const Upload = () => {
                   Обложка
                 </Title>
                 <Input
-                  {...register("title")}
-                  type="text"
-                  id="title"
-                  name="title"
-                  placeholder=""
-                  fullWidth="100%"
+                  {...register("obl")}
+                  type="file"
+                  id="obl"
+                  name="obl"
+                  fullwidth="100%"
                   // error={errors.password}
                 />
 
                 <Title size={17} fw={600} margin="20px 0 5px 0">
                   Кто может просматривать это видео
                 </Title>
-                <Select />
+                <Select 
+                  {...register("private")}
+                  id='private'
+                  name='private'
+                />
 
                 <Title size={17} fw={600} margin="20px 0 5px 0">
                   Позволить людям:
                 </Title>
                 <div className="d-flex align-items-center">
-                  <CheckBox id='comment' margin="0 0 0 0" txt="Комментарии" />
+                  <CheckBox 
+                  {...register("comment")}
+                  id='comment' 
+                  name='comment' 
+                  type='checkbox'
+                  margin="0 0 0 0"
+                  txt="Комментарии" 
+                  />
                 </div>
                 <div className="upload__body__content__btn">
                   <Button variant='outlined' color='#bbbbbb' colorText='#353535'>Удалить</Button>
-                  <Button margin='0 0 0 20px' variant='contained' color='#FE2C55'>Опубликовать</Button>
+                  <Button variant='contained' color='#FE2C55' margin='0 0 0 20px'>Опубликовать</Button>
                 </div>
               </div>
             </Form>
