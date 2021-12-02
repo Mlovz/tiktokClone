@@ -11,7 +11,7 @@ const Profile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { auth, profile } = useSelector((state) => state);
-  const [tab, setTab] = useState(true);
+  const [tab, setTab] = useState(false);
 
   useEffect(() => {
     if (profile?.users?.every((user) => user._id !== id)) {
@@ -35,26 +35,11 @@ const Profile = () => {
       ) : (
         <Info auth={auth} profile={profile} dispatch={dispatch} id={id} />
       )}
-      <div className="mt-4 profile__tab d-flex align-items-center justify-content-between">
-        <Button
-          onClick={() => setTab(true)}
-          fullWidth
-          variant={tab ? "outlinedBottom" : ""}
-          colorText="#000"
-        >
-          Клипы
-        </Button>
-        <Button
-          onClick={() => setTab(false)}
-          fullWidth
-          variant={!tab ? "outlinedBottom" : ""}
-          colorText="#000"
-        >
-          Лайкнул(-а)
-        </Button>
+      <div className="profile__tab">
+        <button onClick={() => setTab(false)} className={`${!tab && 'active'}`}>Клипы</button>
+        <button onClick={() => setTab(true)} className={`${tab && 'active'}`}>Лайкнул(-а)</button>
       </div>
-
-      {tab ? <Clips /> : <Likes />}
+      {tab ? <Likes /> : <Clips />}
     </div>
   );
 };

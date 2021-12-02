@@ -1,7 +1,23 @@
 .profile{
     width: 100%;
     margin-left: 100px;
-    .info{
-        
+    &__tab{
+        @include flex(center, space-between);
+        margin-top: 20px;
+        >button{
+            width: 100%;
+            border: none;
+            padding: 10px 0;
+            background: transparent;
+            border-bottom: 2px solid transparent;
+            opacity: .5;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all .3s;
+            &.active{
+                border-bottom: 2px solid #353535;
+                opacity: 1;
+            }
+        }
     }
 }

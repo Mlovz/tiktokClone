@@ -68,7 +68,6 @@ const Info = ({ auth, profile, dispatch, id }) => {
               </strong>
               Подписчики
             </Title>
-
             <Title size={17} fw={400}>
               <strong
                 style={{
