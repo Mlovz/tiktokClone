@@ -4,9 +4,6 @@ import ReactPlayer from "react-player";
 const VideoSrc = ({ src, width, height }) => {
   const [isVolume, setIsVolume] = useState(0);
   const [isPlay, setIsPlay] = useState(false)
-  const [seconds, setSeconds] = useState(0)
-
-  
   
   
   return (
@@ -18,7 +15,6 @@ const VideoSrc = ({ src, width, height }) => {
         playing={isPlay}
         volume={isVolume}
         
-        onProgress={(progress) => setSeconds(progress)}
       />
       <div className="video__show__pos video__show__volume" onClick={e => e.stopPropagation()}>
           {

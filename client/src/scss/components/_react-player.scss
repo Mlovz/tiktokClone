@@ -1,0 +1,20 @@
+.video__show{
+    position: relative;
+    &__pos{
+        position: absolute;
+        bottom: 30px;
+        
+    }
+    &__volume{
+        right: 20px;
+        i{
+            font-size: 18px;
+        }
+    }
+    &__play{
+        left: 20px;
+        i{
+            font-size: 25px;
+        }
+    }
+}
