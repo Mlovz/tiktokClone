@@ -1,0 +1,17 @@
+.card{
+    border: none;
+    &__header{
+        @include flex(center, space-between);
+        &__ava{
+            display: flex;
+            align-items: center;
+        }
+    }
+    &__body{
+        width: 300px;
+        height: 500px;
+        border: 1px solid #000;
+        display: flex;
+        align-items: flex-end;
+    }
+}

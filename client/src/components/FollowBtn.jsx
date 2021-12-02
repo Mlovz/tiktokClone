@@ -28,8 +28,8 @@ const FollowBtn = () => {
         <>
             {
                 onFollow 
-                ? <Button variant='outlined' colorText='#FE2C55' color='#FE2C55' onClick={handleUnFollow}>Отписаться</Button>
-                : <Button variant='contained' color='#FE2C55' onClick={handleFollow}>Подписаться</Button>
+                ? <Button variant='outlined' colorText='#FE2C55' color='#FE2C55' padding='3px 10px' onClick={handleUnFollow}>Отписаться</Button>
+                : <Button variant='contained' color='#FE2C55'  padding='3px 10px' onClick={handleFollow}>Подписаться</Button>
             }
             
         </>
