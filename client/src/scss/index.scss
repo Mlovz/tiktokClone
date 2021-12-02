@@ -45,15 +45,17 @@ form{
   display: flex;
   align-items: center;
   justify-content: center;
-  >div{
+  div~div{
+    margin-left: 10px;
+  }
+  div{
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    margin-left: 10px;
     animation: anim .4s linear infinite alternate;
     &:nth-child(1){
       animation-delay: .1s;
-      background: rgb(250, 60, 60);
+      background: rgb(131, 43, 247);
     }
     &:nth-child(2){
       animation-delay: .2s;

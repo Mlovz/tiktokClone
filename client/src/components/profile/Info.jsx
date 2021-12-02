@@ -34,10 +34,9 @@ const Info = ({ auth, profile, dispatch, id }) => {
                 <Title margin="0 0 10px 0px" size={20} fw={700}>
                   {user?.fullname}
                 </Title>
-                {/* {
+                {
                         auth.user?._id !== id && <FollowBtn id={id}/>
-                    } */}
-                <FollowBtn />
+                    }
               </div>
             </div>
             <i style={{ fontSize: "25px" }} className="far fa-ellipsis-h"></i>
