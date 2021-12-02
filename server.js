@@ -15,6 +15,7 @@ app.use(cookieParser())
 
 app.use('/api', routes.authRoute)
 app.use('/api', routes.userRoute)
+app.use('/api', routes.postRoute)
 
 const uri = process.env.MONGODB_URL
 
