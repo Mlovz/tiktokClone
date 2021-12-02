@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Clips from "../components/Clips";
 import Likes from "../components/Likes";
 import { getProfileUser } from "../redux/actions/profileAction";
+import Spinner from "../components/Spinner";
 
 const Profile = () => {
   const { id } = useParams();
@@ -21,11 +22,7 @@ const Profile = () => {
   return (
     <div className="profile">
       {profile.loading ? (
-        <div className="spin">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <Spinner/>
       ) : (
         <Info auth={auth} profile={profile} dispatch={dispatch} id={id} />
       )}
