@@ -7,8 +7,13 @@ import Input from "../components/Input";
 import Select from "../components/Select";
 import CheckBox from "../components/CheckBox";
 import Button from "../components/Button";
+import {useDispatch, useSelector} from 'react-redux'
+import { createPost } from "../redux/actions/postAction";
 
 const Upload = () => {
+  const dispatch = useDispatch()
+  const {auth} = useSelector(state => state)
+
   const {
     register,
     handleSubmit,
@@ -18,7 +23,7 @@ const Upload = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+      dispatch(createPost(data, auth.token))
   };
 
   return (
@@ -51,7 +56,6 @@ const Upload = () => {
                   name="title"
                   placeholder=""
                   fullwidth="100%"
-                  // error={errors.password}
                 />
 
                 {/* <Title size={17} fw={600} margin="20px 0 5px 0">
@@ -63,7 +67,6 @@ const Upload = () => {
                   id="obl"
                   name="obl"
                   fullwidth="100%"
-                  // error={errors.password}
                 /> */}
 
                 <Title size={17} fw={600} margin="20px 0 5px 0">

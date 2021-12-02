@@ -7,6 +7,10 @@ const postSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
+    isPrivate:{
+        type: String,
+        default: 'Все'
+    },
     followers:[{
         type: mongoose.Types.ObjectId,
         ref: 'user'
