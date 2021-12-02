@@ -7,6 +7,7 @@ import Button from "../Button";
 import SearchModal from "../SearchModal";
 import AuthModal from "./AuthModal";
 import HeaderMenu from "./HeaderMenu";
+import {Link} from 'react-router-dom'
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -39,10 +40,10 @@ const Header = () => {
     <div className="header">
       <div className="container h-100 w-100">
         <div className="header__container">
-          <div className="header__logo">
+          <Link to='/' className="header__logo">
             <img src="/tiktok.png" alt="" />
             <span>TikTok</span>
-          </div>
+          </Link>
           <div className="header__search">
             <input
               type="text"

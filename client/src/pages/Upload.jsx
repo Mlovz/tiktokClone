@@ -9,10 +9,13 @@ import CheckBox from "../components/CheckBox";
 import Button from "../components/Button";
 import {useDispatch, useSelector} from 'react-redux'
 import { createPost } from "../redux/actions/postAction";
+import {useHistory} from 'react-router-dom'
+import Spinner from '../components/Spinner'
 
 const Upload = () => {
   const dispatch = useDispatch()
-  const {auth} = useSelector(state => state)
+  const {auth, postRed} = useSelector(state => state)
+  const history = useHistory()
 
   const {
     register,
@@ -23,7 +26,9 @@ const Upload = () => {
   });
 
   const onSubmit = (data) => {
-      dispatch(createPost(data, auth.token))
+      if(data.files && data.files.length !== 0){
+        dispatch(createPost(data, auth.token, history))
+      }
   };
 
   return (
@@ -93,7 +98,13 @@ const Upload = () => {
                 </div>
                 <div className="upload__body__content__btn">
                   <Button variant='outlined' color='#bbbbbb' colorText='#353535'>Удалить</Button>
-                  <Button variant='contained' color='#FE2C55' margin='0 0 0 20px'>Опубликовать</Button>
+                  <Button disabled={postRed.loading} variant='contained' color='#FE2C55' margin='0 0 0 20px'>
+                    {
+                      postRed.loading 
+                      ? <Spinner/>
+                      :'Опубликовать'
+                    }
+                  </Button>
                 </div>
               </div>
             </Form>

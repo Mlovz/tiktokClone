@@ -7,7 +7,7 @@ export const POST_TYPES = {
 }
 
 
-export const createPost = (data, token) => async(dispatch) => {
+export const createPost = (data, token, history) => async(dispatch) => {
     try {
         dispatch({type: POST_TYPES.LOADING, payload: true})
 
@@ -17,11 +17,12 @@ export const createPost = (data, token) => async(dispatch) => {
             isComment: data.comment,
             isPrivate: data.private
         }, token)
+
         dispatch({type: POST_TYPES.CREATE_POST, payload: res.data})
 
         dispatch({type: POST_TYPES.LOADING, payload: false})
         
-        
+        history.push('/')
     } catch (err) {
         dispatch({type: GLOBALTYPES.ALERT, payload: {error: err.response.data.msg}})
     }
