@@ -41,6 +41,44 @@ form{
   }
 }
 
+.spin{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  >div{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+    animation: anim .4s linear infinite alternate;
+    &:nth-child(1){
+      animation-delay: .1s;
+      background: rgb(250, 60, 60);
+    }
+    &:nth-child(2){
+      animation-delay: .2s;
+      background: rgb(76, 167, 252);
+    }
+    &:nth-child(3){
+      animation-delay: .3s;
+      background: rgb(255, 197, 73);
+    }
+  }
+
+  @keyframes anim {
+    0%{
+      transform: scale(1);
+      opacity: .3;
+    }
+    100%{
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+  
+}
+
 @import './components/header';
 @import './components/button';
 @import './components/auth-modal';
