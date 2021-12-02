@@ -54,7 +54,7 @@ const Upload = () => {
                   // error={errors.password}
                 />
 
-                <Title size={17} fw={600} margin="20px 0 5px 0">
+                {/* <Title size={17} fw={600} margin="20px 0 5px 0">
                   Обложка
                 </Title>
                 <Input
@@ -64,7 +64,7 @@ const Upload = () => {
                   name="obl"
                   fullwidth="100%"
                   // error={errors.password}
-                />
+                /> */}
 
                 <Title size={17} fw={600} margin="20px 0 5px 0">
                   Кто может просматривать это видео
