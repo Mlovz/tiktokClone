@@ -5,6 +5,4 @@ const router = express.Router()
 
 router.post('/create_post', postCtrl.createPost)
 
-
-
 export default router
