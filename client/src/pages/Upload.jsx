@@ -98,7 +98,7 @@ const Upload = () => {
                 </div>
                 <div className="upload__body__content__btn">
                   <Button variant='outlined' color='#bbbbbb' colorText='#353535'>Удалить</Button>
-                  <Button disabled={postRed.loading} variant='contained' color='#FE2C55' margin='0 0 0 20px'>
+                  <Button padding='3px 10px' disabled={postRed.loading} variant='contained' color='#FE2C55' margin='0 0 0 20px'>
                     {
                       postRed.loading 
                       ? <Spinner/>

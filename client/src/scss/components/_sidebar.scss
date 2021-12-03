@@ -2,6 +2,9 @@
     height: calc(100vh - 60px);
     max-width: 450px;
     width: 100%;
+    // background: #fff;
+    border-radius: 10px;
+    display: flex;
     &__route{
         &__link~&__link{
             margin-top: 10px;
@@ -13,6 +16,19 @@
                 color: red;
                 svg{
                     fill: $red;
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 990px) {
+        // display: none;
+        width: auto;
+        padding: 10px;
+        background: #fff;
+        &__route{
+            &__link{
+                >h6{
+                    display: none;
                 }
             }
         }

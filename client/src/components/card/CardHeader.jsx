@@ -2,10 +2,10 @@ import React from 'react'
 import Avatar from '../Avatar'
 import Title from '../Title'
 import FollowBtn from '../FollowBtn'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 const CardHeader = ({post}) => {
-    const {auth} = useSelector(state => state)
+    // const {auth} = useSelector(state => state)
     
     return (
         <div className='card__header'>
