@@ -10,6 +10,7 @@ const FileInput = ({ name, control }) => {
       control={control}
       name={name}
       render={({ field: { onChange, onBlur, value } }) => {
+        console.log(value);
         return value ? (
           <div className="video__ctrl">
             {

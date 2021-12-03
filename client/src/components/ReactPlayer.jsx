@@ -7,7 +7,7 @@ const VideoSrc = ({ src, width, height }) => {
   
   
   return (
-    <div className="video__show h-100" onClick={() => setIsPlay(!isPlay)}>
+    <div className="video__show w-100 h-100" onClick={() => setIsPlay(!isPlay)}>
       <ReactPlayer
         url={src}
         width={width}

@@ -1,10 +1,12 @@
 import {GLOBALTYPES} from './globalAction'
-import {postDataApi} from '../../utils/Api'
+import {getDataApi, postDataApi} from '../../utils/Api'
 import { imageUpload } from '../../utils/ImageUpload';
 
 export const POST_TYPES = {
     LOADING: "CREATE_LOADING",
-    CREATE_POST: 'CREATE_POST'
+    GET_LOADING: 'GET_LOADING',
+    CREATE_POST: 'CREATE_POST',
+    GET_POSTS: 'GET_POSTS'
 }
 
 
@@ -29,5 +31,19 @@ export const createPost = (data, token, history) => async(dispatch) => {
         history.push('/')
     } catch (err) {
         dispatch({type: GLOBALTYPES.ALERT, payload: {error: err.response.data.msg}})
+    }
+}
+
+export const getPosts = (token) => async(dispatch) => {
+    try {
+        dispatch({type: POST_TYPES.GET_LOADING, payload: true})
+
+        const res = await getDataApi('get_auth_posts', token)
+        dispatch({type: POST_TYPES.GET_POSTS, payload: res.data})
+        
+        
+        dispatch({type: POST_TYPES.GET_LOADING, payload: false})
+    } catch (err) {
+        
     }
 }

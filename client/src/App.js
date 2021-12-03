@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Switch, Route, useLocation } from "react-router";
 import Header from "./components/header/Header";
 import Upload from "./pages/Upload";
@@ -9,16 +9,23 @@ import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import Sidebar from "./components/sideBar/Sidebar";
 import Following from "./pages/Following";
+import { getPosts } from "./redux/actions/postAction";
 
 function App() {
   const dispatch = useDispatch();
-  // const {  } = useSelector((state) => state);
+  const {auth} = useSelector((state) => state);
   const {pathname} = useLocation()
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
+  useEffect(() => {
+    if(auth.token){
+      dispatch(getPosts(auth.token));
+    }
+  }, [dispatch, auth.token]);
+  
   return (
     <div className="app">
       <Header />

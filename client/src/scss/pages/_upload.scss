@@ -23,6 +23,9 @@
                 cursor: pointer;
                 >.video__ctrl{
                     height: 100%;
+                    width: 100%;
+                    border-radius: inherit;
+                    overflow: hidden;
                 }
                 .drop__content{
                     @include flex(center, center);

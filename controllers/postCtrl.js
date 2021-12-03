@@ -25,7 +25,7 @@ const postCtrl = {
     });
   },
   getPosts: async (req, res) => {
-    const posts = await Posts.find({ user: [req.user.following, req.user._id] })
+    const posts = await Posts.find({ user: [...req.user.following, req.user._id] })
       .sort("-createdAt")
       .populate("user likes", "avatar username fullname followers");
 

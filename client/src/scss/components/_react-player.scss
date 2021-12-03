@@ -1,20 +1,24 @@
 .video__show{
     position: relative;
+    video{
+        border-radius: 10px;
+    }
     &__pos{
         position: absolute;
         bottom: 30px;
-        
     }
     &__volume{
         right: 20px;
         i{
             font-size: 18px;
+            color: #fff;
         }
     }
     &__play{
         left: 20px;
         i{
             font-size: 25px;
+            color: #fff;
         }
     }
 }
