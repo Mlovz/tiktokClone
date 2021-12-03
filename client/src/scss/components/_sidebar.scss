@@ -5,6 +5,7 @@
     // background: #fff;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     &__route{
         &__link~&__link{
             margin-top: 10px;
@@ -19,6 +20,13 @@
                 }
             }
         }
+    }
+    &__auth{
+        width: 300px;
+        padding: 10px 0 20px 0;
+        margin: 20px 0;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
     }
     @media only screen and (max-width: 990px) {
         // display: none;

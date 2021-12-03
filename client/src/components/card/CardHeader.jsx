@@ -18,7 +18,7 @@ const CardHeader = ({post}) => {
                         <Title size={17} fw={700}>{post.user?.username}</Title>
                         <Title size={13} fw={500} margin='0 0 0 10px'>{post.user?.fullname}</Title>
                     </Link>
-                    <Text txt={post.title} />
+                    <Text size={15} fw={500} txt={post.title} />
                 </div>
             </div>
             <div>

@@ -2,6 +2,7 @@ import { POST_TYPES } from "../actions/postAction";
 
 const initialState = {
   loading: false,
+  get_load: false,
   posts: [],
 };
 
@@ -11,6 +12,11 @@ const postReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: action.payload,
+      };
+    case POST_TYPES.GET_LOADING:
+      return {
+        ...state,
+        get_load: action.payload,
       };
     case POST_TYPES.CREATE_POST:
       return {

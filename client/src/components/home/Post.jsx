@@ -8,7 +8,7 @@ const Post = ({posts}) => {
         <>
             {
                 posts.map(post => (
-                    <div className='card'>
+                    <div key={post._id} className='card'>
                         <CardHeader post={post}/>
                         <div className='d-flex align-items-end'>
                             <CardBody post={post}/>

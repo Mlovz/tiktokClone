@@ -1,10 +1,15 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import Title from "../Title";
+import Text from "../Text";
+import Button from "../Button";
+import {GLOBALTYPES} from '../../redux/actions/globalAction'
 
 const Sidebar = () => {
     const {pathname} = useLocation()    
-    
+    const dispatch = useDispatch()
+    const {auth} = useSelector(state => state)
     const isActive = (pn) => {
         if(pn === pathname) return 'active'
     }
@@ -55,6 +60,16 @@ const Sidebar = () => {
           <Title margin='0 0 0 10px' size={18} fw={600}>Подписки</Title>
         </Link>
       </div>
+
+      {
+        !auth.token && 
+        <div className='sidebar__auth'>
+          <Text margin='0 0 10px 0' txt="Войдите, чтобы подписываться на авторов, ставить лайки видео и читать комментарии."/>
+          <Button onClick={() => dispatch({type: GLOBALTYPES.AUTH_MODAL, payload: true})} variant='outlined' color='#FE2C55' fullWidth size={18} padding='7px 0'>Войти</Button>
+       </div>
+      }
+      
+      
     </div>
   );
 };

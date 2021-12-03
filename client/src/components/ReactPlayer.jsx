@@ -1,22 +1,18 @@
-import React, {  useState } from "react";
-import ReactPlayer from "react-player";
+import React, {  forwardRef, useState } from "react";
 
-const VideoSrc = ({ src, width, height }) => {
-  const [isVolume, setIsVolume] = useState(0);
-  const [isPlay, setIsPlay] = useState(false)
+const VideoSrc = forwardRef((props, ref ) => {
+   const [isPlay, setIsPlay] = useState(true)
+  
   
   
   return (
     <div className="video__show w-100 h-100" onClick={() => setIsPlay(!isPlay)}>
-      <ReactPlayer
-        url={src}
-        width={width}
-        height={height}
-        playing={isPlay}
-        volume={isVolume}
-        
-      />
-      <div className="video__show__pos video__show__volume" onClick={e => e.stopPropagation()}>
+      <video id={props.id} width={props.width} height={props.height} autoPlay onPlay muted controls>
+        <source src={props.src} type='video/mp4'/>
+      </video>
+     
+     
+      {/* <div className="video__show__pos video__show__volume" onClick={e => e.stopPropagation()}>
           {
               isVolume === 1 
               ?<i onClick={() => setIsVolume(0)} className="far fa-volume-up"></i>
@@ -32,9 +28,9 @@ const VideoSrc = ({ src, width, height }) => {
                 e.stopPropagation()
             }} className="fas fa-play"></i> 
         }
-      </div>
+      </div> */}
     </div>
   );
-};
+})
 
 export default VideoSrc;
