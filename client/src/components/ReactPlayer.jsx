@@ -1,13 +1,12 @@
-import React, {  forwardRef, useState } from "react";
+import React, {  forwardRef } from "react";
 
 const VideoSrc = forwardRef((props, ref ) => {
-   const [isPlay, setIsPlay] = useState(true)
   
   
   
   return (
-    <div className="video__show w-100 h-100" onClick={() => setIsPlay(!isPlay)}>
-      <video id={props.id} width={props.width} height={props.height} autoPlay onPlay muted controls>
+    <div className="video__show w-100 h-100">
+      <video onMouseLeave={props.onMouseLeave} onMouseEnter={props.onMouseEnter} {...props} >
         <source src={props.src} type='video/mp4'/>
       </video>
      

@@ -6,7 +6,6 @@
 body{
   font-family: 'Source Code Pro', monospace;
   background: #fff;
-  height: 200vh;
 }
 button,input{
   font-family: 'Source Code Pro', monospace;
@@ -122,8 +121,10 @@ form{
 @import './components/usercard';
 @import './components/react-player';
 @import './components/card';
+@import './components/follow-thumb';
 
 
 //pages
 @import './pages/upload';
 @import './pages/profile';
+@import './pages/following';

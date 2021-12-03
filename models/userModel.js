@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
         maxlength: 25
     },
+   
     username: {
         type: String,
         required: true,
@@ -24,6 +25,10 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    storis:{
+        type: Object,
+        default: 'https://res.cloudinary.com/daggokgzh/video/upload/v1638539749/CloseUp_q9kszy.mp4'
     },
     avatar: {
         type: String,
