@@ -22,8 +22,8 @@ const FollowThumb = ({ user, index }) => {
       <div className='follow__thumb__user'>
         <Link to={`/profile/${user._id}`}>
             <Avatar src={user.avatar} size='small'/>
-            <Title color='#353535'>{user.username}</Title>
-            <Title margin='5px 0' size={13} color='#353535'>{user.fullname}</Title>
+            <Title color='#fff'>{user.username}</Title>
+            <Title margin='5px 0' size={13} color='#fff'>{user.fullname}</Title>
         </Link>
         <FollowBtn/>
       </div>

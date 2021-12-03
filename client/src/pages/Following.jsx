@@ -2,10 +2,11 @@ import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import FollowThumb from '../components/FollowThumb'
 import { getAllUsers } from '../redux/actions/profileAction'
+import Spinner from '../components/Spinner'
 
 const Following = () => {
     const dispatch = useDispatch()
-    const {followUser} = useSelector(state => state)
+    const {followUser, auth} = useSelector(state => state)
 
     useEffect(() => {
         if(!followUser.firstLoad){
@@ -16,9 +17,13 @@ const Following = () => {
     return (
         <div className='following'>
             {
-                followUser.users.map((user, index) => (
-                    <FollowThumb key={user._id} user={user} index={index}/>
-                ))
+                followUser.loading ? 
+                    <Spinner/>
+                :
+                    followUser.users?.filter(user => user._id !== auth.user?._id).map((user, index) => (
+                        <FollowThumb key={user._id} user={user} index={index}/>
+                    ))
+                
             }
         </div>
     )
