@@ -31,7 +31,6 @@ export const getAllUsers = () => async(dispatch) => {
         dispatch({type: PROFILE_TYPES.GET_USERS_LOADING, payload: true})
 
         const res = await getDataApi(`users`, null)
-        console.log(res);
         dispatch({type: PROFILE_TYPES.GET_ALL_USERS, payload: res.data})
 
         dispatch({type: PROFILE_TYPES.GET_USERS_LOADING, payload: false})

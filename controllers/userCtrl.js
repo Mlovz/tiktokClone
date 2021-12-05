@@ -28,6 +28,17 @@ const userCtrl = {
             return res.status(500).json({msg: err.message})
         }
     },
+    follow: async (req, res) => {
+        const newUser = await Users.findOneAndUpdate({_id: req.params._id}, {
+            $push: {followers: req.user._id}
+        }, {new: true}).populate("followers following", "-password")
+
+        await Users.findOneAndUpdate({_id: req.user._id}, {
+            $push: {following: req.params._id}
+        }, {new: true})
+
+        res.json({newUser})
+    }
 
 }
 
