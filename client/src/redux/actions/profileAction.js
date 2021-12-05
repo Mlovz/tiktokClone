@@ -1,5 +1,5 @@
 // import { AUTH_TYPES } from './authAction'
-import {getDataApi} from '../../utils/Api'
+import {getDataApi, patchDataApi} from '../../utils/Api'
 import {GLOBALTYPES} from './globalAction'
 
 
@@ -52,6 +52,14 @@ export const follow = ({user, auth}) => async(dispatch) => {
             }
         }
     })
+
+    try {
+        const res = await patchDataApi(`user/${user._id}/follow`, null, auth.token)
+        console.log(res);
+    } catch (error) {
+        
+    }
+    
     
 }
 

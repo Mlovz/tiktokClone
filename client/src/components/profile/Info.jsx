@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Avatar from "../Avatar";
 import FollowBtn from "../FollowBtn";
 import Text from "../Text";
 import Title from "../Title";
 
-const Info = ({ auth, profile, dispatch, id }) => {
+const Info = ({ id }) => {
   const [userData, setUserData] = useState([]);
+  const {auth, profile} = useSelector(state => state)
 
   useEffect(() => {
-    if (auth.user?._id === id) {
+    if (id === auth.user?._id ) {
       setUserData([auth.user]);
     } else {
       const newData = profile.users.filter((user) => user._id === id);
@@ -35,8 +37,8 @@ const Info = ({ auth, profile, dispatch, id }) => {
                   {user?.fullname}
                 </Title>
                 {
-                        auth.user?._id !== id && <FollowBtn id={id} user={user}/>
-                    }
+                        auth.user?._id !== id && <FollowBtn user={user}/>
+                }
               </div>
             </div>
             <i style={{ fontSize: "25px" }} className="far fa-ellipsis-h"></i>

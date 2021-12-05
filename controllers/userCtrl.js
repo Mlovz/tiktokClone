@@ -29,15 +29,19 @@ const userCtrl = {
         }
     },
     follow: async (req, res) => {
-        const newUser = await Users.findOneAndUpdate({_id: req.params._id}, {
-            $push: {followers: req.user._id}
-        }, {new: true}).populate("followers following", "-password")
+        try {
+            const newUser = await Users.findOneAndUpdate({_id: req.params.id}, { 
+                $push: {followers: req.user._id}
+            }, {new: true}).populate("followers following", "-password")
 
-        await Users.findOneAndUpdate({_id: req.user._id}, {
-            $push: {following: req.params._id}
-        }, {new: true})
+            await Users.findOneAndUpdate({_id: req.user._id}, {
+                $push: {following: req.params.id}
+            }, {new: true})
 
-        res.json({newUser})
+            res.json({newUser})
+        } catch (error) {
+            
+        }
     }
 
 }
