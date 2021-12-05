@@ -10,10 +10,11 @@ import Home from "./pages/Home";
 import Sidebar from "./components/sideBar/Sidebar";
 import Following from "./pages/Following";
 import { getPosts } from "./redux/actions/postAction";
+import { getAllUsers } from "./redux/actions/profileAction";
 
 function App() {
   const dispatch = useDispatch();
-  const {auth} = useSelector((state) => state);
+  const {auth, followUser} = useSelector((state) => state);
   const {pathname} = useLocation()
 
   useEffect(() => {
@@ -25,6 +26,12 @@ function App() {
       dispatch(getPosts(auth.token));
     }
   }, [dispatch, auth.token]);
+
+  useEffect(() => {
+    if(!followUser.firstLoad){
+        dispatch(getAllUsers())
+    }
+  },[dispatch, followUser.firstLoad])
   
   return (
     <div className="app">

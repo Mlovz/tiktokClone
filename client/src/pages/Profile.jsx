@@ -14,10 +14,10 @@ const Profile = () => {
   const [tab, setTab] = useState(false);
 
   useEffect(() => {
-    if (profile?.users?.every((user) => user._id !== id)) {
+    if (profile?.users?.every((user) => user._id !== id) && !profile.loading) {
       dispatch(getProfileUser(id));
     }
-  }, [dispatch, id, profile.users]);
+  }, [dispatch, id, profile.users, profile.loading]);
 
   return (
     <div className="profile">

@@ -1,6 +1,6 @@
 .sidebar{
     height: calc(100vh - 60px);
-    max-width: 450px;
+    max-width: 340px;
     width: 100%;
     // background: #fff;
     border-radius: 10px;
@@ -22,11 +22,20 @@
         }
     }
     &__auth{
-        width: 300px;
-        padding: 10px 0 20px 0;
-        margin: 20px 0;
+        width: 100%;
+        padding-top: 10px;
+        margin-top: 20px;
         border-top: 1px solid #dbdbdb;
-        border-bottom: 1px solid #dbdbdb;
+    }
+    &__recomed{
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #dbdbdb;
+    }
+    &__following{
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #dbdbdb;
     }
     @media only screen and (max-width: 990px) {
         // display: none;

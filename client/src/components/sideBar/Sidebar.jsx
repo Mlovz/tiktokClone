@@ -4,20 +4,21 @@ import { Link, useLocation } from "react-router-dom";
 import Title from "../Title";
 import Text from "../Text";
 import Button from "../Button";
-import {GLOBALTYPES} from '../../redux/actions/globalAction'
+import { GLOBALTYPES } from "../../redux/actions/globalAction";
+import UserCard from "../UserCard";
 
 const Sidebar = () => {
-    const {pathname} = useLocation()    
-    const dispatch = useDispatch()
-    const {auth} = useSelector(state => state)
-    const isActive = (pn) => {
-        if(pn === pathname) return 'active'
-    }
-    
+  const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  const { auth, followUser } = useSelector((state) => state);
+  const isActive = (pn) => {
+    if (pn === pathname) return "active";
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar__route">
-        <Link to='/' className={`sidebar__route__link ${isActive('/')}`}>
+        <Link to="/" className={`sidebar__route__link ${isActive("/")}`}>
           <svg
             width="32"
             height="32"
@@ -31,9 +32,14 @@ const Sidebar = () => {
               d="M23.0484 7.84003C23.6014 7.38666 24.3975 7.38666 24.9504 7.84001L41.051 21.04C41.5411 21.4418 41.7258 22.1082 41.5125 22.705C41.2991 23.3017 40.7338 23.7 40.1 23.7H37.769L36.5769 36.7278C36.4592 38.0149 35.3798 39 34.0873 39H13.9127C12.6202 39 11.5409 38.0149 11.4231 36.7278L10.231 23.7H7.89943C7.2657 23.7 6.70035 23.3017 6.487 22.705C6.27364 22.1083 6.45833 21.4418 6.9484 21.04L23.0484 7.84003ZM23.9995 10.9397L12.0948 20.7H12.969L14.369 36H22.4994V28.3138C22.4994 27.7616 22.9471 27.3138 23.4994 27.3138H24.4994C25.0517 27.3138 25.4994 27.7616 25.4994 28.3138V36H33.631L35.031 20.7H35.9045L23.9995 10.9397Z"
             ></path>
           </svg>
-          <Title margin='0 0 0 10px' size={18} fw={600}>Рекомендуем</Title>
+          <Title margin="0 0 0 10px" size={18} fw={600}>
+            Рекомендуем
+          </Title>
         </Link>
-        <Link to='/following' className={`sidebar__route__link ${isActive('/following')}`}>
+        <Link
+          to="/following"
+          className={`sidebar__route__link ${isActive("/following")}`}
+        >
           <svg
             width="32"
             height="32"
@@ -57,19 +63,59 @@ const Sidebar = () => {
               d="M33 18.5C31.6193 18.5 30.5 19.6193 30.5 21C30.5 22.3807 31.6193 23.5 33 23.5C34.3807 23.5 35.5 22.3807 35.5 21C35.5 19.6193 34.3807 18.5 33 18.5ZM27.5 21C27.5 17.9624 29.9624 15.5 33 15.5C36.0376 15.5 38.5 17.9624 38.5 21C38.5 24.0376 36.0376 26.5 33 26.5C29.9624 26.5 27.5 24.0376 27.5 21Z"
             ></path>
           </svg>
-          <Title margin='0 0 0 10px' size={18} fw={600}>Подписки</Title>
+          <Title margin="0 0 0 10px" size={18} fw={600}>
+            Подписки
+          </Title>
         </Link>
       </div>
 
-      {
-        !auth.token && 
-        <div className='sidebar__auth'>
-          <Text margin='0 0 10px 0' txt="Войдите, чтобы подписываться на авторов, ставить лайки видео и читать комментарии."/>
-          <Button onClick={() => dispatch({type: GLOBALTYPES.AUTH_MODAL, payload: true})} variant='outlined' color='#FE2C55' fullWidth size={18} padding='7px 0'>Войти</Button>
-       </div>
-      }
-      
-      
+      {!auth.token && (
+        <div className="sidebar__auth">
+          <Text
+            margin="0 0 10px 0"
+            txt="Войдите, чтобы подписываться на авторов, ставить лайки видео и читать комментарии."
+          />
+          <Button
+            onClick={() =>
+              dispatch({ type: GLOBALTYPES.AUTH_MODAL, payload: true })
+            }
+            variant="outlined"
+            color="#FE2C55"
+            fullWidth
+            size={18}
+            padding="7px 0"
+          >
+            Войти
+          </Button>
+        </div>
+      )}
+      <div className="sidebar__recomed">
+        <Title size={16} fw={700} margin="0 0 15px 0">
+          Рекомендуемые аккаунты
+        </Title>
+        {followUser.users.map((user, index) => (
+          <UserCard key={user._id} component="Link" index={index} user={user} />
+        ))}
+      </div>
+      <div className="sidebar__following">
+        <Title size={16} fw={700} margin="0 0 15px 0">
+          Подписки на аккаунты
+        </Title>
+        {auth.token && auth.user.following.length !== 0  ? (
+          auth.user.following.map((user, index) => (
+            <UserCard
+              key={user._id}
+              component="Link"
+              index={index}
+              user={user}
+            />
+          ))
+        ) : auth.token && auth.user.following.length === 0 ? (
+          <Text txt="У вас нет подписок" />
+        ) : (
+          <Text txt="Здесь появятся аккаунты, на которые вы подписаны" />
+        )}
+      </div>
     </div>
   );
 };

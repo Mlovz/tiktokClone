@@ -35,7 +35,7 @@ const Info = ({ auth, profile, dispatch, id }) => {
                   {user?.fullname}
                 </Title>
                 {
-                        auth.user?._id !== id && <FollowBtn id={id}/>
+                        auth.user?._id !== id && <FollowBtn id={id} user={user}/>
                     }
               </div>
             </div>

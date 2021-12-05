@@ -79,6 +79,7 @@ const Header = () => {
               variant="contained"
               color="#FE2C55"
               disabled={authModal}
+              padding='4px 20px'
             >
               Войти
             </Button>

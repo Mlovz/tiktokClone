@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import FollowThumb from '../components/FollowThumb'
-import { getAllUsers } from '../redux/actions/profileAction'
 import Spinner from '../components/Spinner'
 
 const Following = () => {
     const dispatch = useDispatch()
     const {followUser, auth} = useSelector(state => state)
 
-    useEffect(() => {
-        if(!followUser.firstLoad){
-            dispatch(getAllUsers())
-        }
-    },[dispatch, followUser.firstLoad])
+    
     
     return (
         <div className='following'>
